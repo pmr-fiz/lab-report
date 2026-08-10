@@ -1,0 +1,20 @@
+# Personal information
+config.json
+
+# Artefacts
+*.pdf
+preview-*.png
+page-*.png
+sr-*.png
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# OS
+.DS_Store
+.idea/
+.vscode/
