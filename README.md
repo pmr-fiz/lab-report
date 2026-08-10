@@ -31,8 +31,8 @@
 Склонируйте репозиторий:
 
 ```bash
-git clone https://github.com/<user>/<repo>.git
-cd <repo>
+git clone https://github.com/pmr-fiz/lab-report
+cd lab-report
 ```
 
 Создайте виртуальное окружение и установите зависимости:
