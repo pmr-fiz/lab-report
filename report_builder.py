@@ -19,7 +19,7 @@ report_builder.py — шаблон отчёта, закодированный п
     solution_heading(doc)                -> "Решение:"
     add_code_block / add_output_block    -> из code_block.py (реэкспорт)
     explanation(doc, paragraphs)         -> абзацы объяснения кода
-    control_questions(doc, qa)           -> "Контрольные вопросы:" (вопрос жирным + ответ)
+    control_questions(doc, qa)           -> "Контрольные вопросы:" с новой страницы (вопрос жирным + ответ)
     save(doc, path)
 """
 
@@ -242,9 +242,10 @@ def explanation(doc, paragraphs):
         body(doc, para)
 
 
-def control_questions(doc, qa):
-    """'Контрольные вопросы:' + [{'q':..., 'a':...}]."""
-    _heading(doc, "Контрольные вопросы:")
+def control_questions(doc, qa, page_break=True):
+    """'Контрольные вопросы:' + [{'q':..., 'a':...}]. По умолчанию — с новой страницы."""
+    heading = _heading(doc, "Контрольные вопросы:")
+    heading.paragraph_format.page_break_before = page_break
     for i, item in enumerate(qa, 1):
         pq = doc.add_paragraph()
         pq.paragraph_format.first_line_indent = Cm(0)
